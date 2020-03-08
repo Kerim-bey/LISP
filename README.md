@@ -7,15 +7,9 @@
 Код: 
 ``` 
 (defun len (list)
-
     (cond ((null list) 0)
-
-        (t (+ 1 (len (cdr list))))
-
-    )
-
-)
-
+    (t (+ 1 (len (cdr list))))))
+    
 (defun del (lst m)
     (cond ((null lst) 0)
     ((eql (len lst) m) nil)
@@ -39,3 +33,28 @@ m = 5
 4) lst = (1 1 1 1 1 1 1 1)
 m = 3
 => (1 1 1 1 1 1 1) 
+
+
+# ЗАДАНИЕ 11
+
+Условие: Определите функцию, осуществляющую разделение исходного списка на два подсписка. В первый из них должно попасть указанное количество элементов с начала списка, во второй — оставшиеся элементы.
+
+Код: 
+
+``` 
+(defun sps (lst m &optional (r nil))
+    (cond ((null lst) 0)
+    ((eql (- m 1) -1) (list (reverse r) lst))
+    (t (sps (cdr lst) (- m 1) (cons (car lst) r)))))
+``` 
+
+Тесты:
+
+1) lst = (k e r i m s u p e r), m = 5 => ((K E R I M) (S U P E R)) 
+2) lst = (1 2 3 4 5 6 7), m = 3 => ((1 2 3) (4 5 6 7))
+3) lst = (a b c d e f g), m = 5 => ((A B C D E) (F G)) 
+4) lst = (1 2 2 2 2 2 2 2), m = 1 => ((1) (2 2 2 2 2 2 2)) 
+
+
+
+
