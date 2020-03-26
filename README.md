@@ -14,6 +14,8 @@
     (cond ((null lst) 0)
     ((eql (len lst) m) nil)
     (t (cons (car lst) (del (cdr lst) m)))))
+
+(print (del '(1 2 3 4 5) 3))
 ``` 
 
 Тесты: 
@@ -46,6 +48,8 @@ m = 3
     (cond ((null lst) 0)
     ((eql (- m 1) -1) (list (reverse r) lst))
     (t (sps (cdr lst) (- m 1) (cons (car lst) r)))))
+
+(print (sps '(1 2 3 4 5 6 7) 5))
 ``` 
 
 Тесты:
@@ -67,6 +71,8 @@ m = 3
     (cond ((< N 1) nil)
         ((eql (+ N 1) r) nil)
         (t(cons r (nl N (+ r 1))))))
+
+(print (nl 10))
 ``` 
 
 Тесты: 
@@ -92,6 +98,8 @@ m = 3
         ((>= (car lst) 0) (separ (cdr lst) l1 (cons (car lst) l2)))
         (t (separ (cdr lst) (cons (car lst) l1) l2))))
 
+
+(print (separ (1 2 3 -1 -2 -3)))
 ``` 
 
 Тесты: 
