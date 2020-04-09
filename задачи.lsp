@@ -63,11 +63,15 @@
 ;;;; Определите функцию, разделяющую исходный список на два подсписка. В первый из них должны попасть элементы с нечетными номерами, во второй — элементы с четными номерами.
 
 ;;;Код:
-(defun div (lst &optional lst1 lst2 (n 1))
-    (cond 
-        ((null lst) (list (reverse lst1) (reverse lst2)))
-        ((eql (REM n 2) 0) (div (cdr lst) lst1 (cons (car lst) lst2) (+ n 1)))
-        (t (div (cdr lst) (cons (car lst) lst1) lst2 (+ n 1)))))
+(defun div (lst)
+   (cond ((null lst) NIL)
+         (t ((lambda (newlst)
+            (list
+                (cons (car lst) (car newlst))
+                (cons (cadr lst) (cadr newlst)))) (div (cddr lst)))
+         )
+   )
+)
 
 
 (print (div '(1 2 3 4 5 6 8 9)))
