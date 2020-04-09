@@ -82,11 +82,11 @@
 ;;;; Определите функцию, удаляющую в исходном списке все повторные вхождения элементов.
 
 ;;;Код:
-(defun find-delete (lst) 
- (cond
-  ((null lst) nil)
-  ((member (car lst) (cdr lst)) (find-delete (cdr lst)))
-  (t (cons (car lst) (find-delete (cdr lst))))))
+(defun findls (lst &optional (r nil))
+    (cond 
+        ((null lst) r)
+        ((member (car lst) r) (findls (cdr lst) r))
+        (t (findls (cdr lst) (append r (list (car lst)))))))
 
 (print (find-delete '(1 2 3 1 2 3 1 4 1 5)))
 (print (find-delete '(1 1 1 1 1 1)))
