@@ -31,10 +31,10 @@
 ;;;;Определите функцию, порождающую по заданному натуральному числу N список, состоящий из натуральных чисел от 1 до N.
 
 ;;;Код:
-(defun nl (N &optional (r 1))
+(defun nl (N &optional (r 0))
     (cond ((< N 1) nil)
-        ((eql (+ N 1) r) nil)
-        (t(cons r (nl N (+ r 1))))))
+        ((eql N r) nil)
+        (t(cons (+ r 1) (nl N (+ r 1))))))
 
 (print (nl 10))
 (print (nl 5))
