@@ -161,3 +161,22 @@ m = 3
 (print (find-delete '(1 1 1 1 1 1)))
 (print (find-delete '(1 1 1 1 2 2 2 3 4)))
 ``` 
+
+# ЗАДАНИЕ 14
+
+Условие: Определите функцию, осуществляющую перестановку двух элементов списка
+с заданными номерами.
+
+Код: 
+``` 
+(defun swap (lst n m)
+ (cond ((> n 0) (cons (car lst) (swap (cdr lst) (1- n) (1- m))))
+       ((> m 1)
+            ((lambda (res) (cons (car res) (cons (cadr lst) (cdr res))))
+            (swap (cons (car lst) (cddr lst)) (1- n) (1- m))))
+      (t (cons (cadr lst) (cons (car lst) (cddr lst))))))
+
+(print (swap '(1 2 3 4 5) 0 1))
+(print (swap '(1 2 3 4 5) 1 4))
+(print (swap '(1 2 3 4 5) 3 4))
+``` 
