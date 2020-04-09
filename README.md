@@ -143,3 +143,21 @@ m = 3
 (print (div '(1 2 3)))
 
 ``` 
+
+
+# ЗАДАНИЕ 13
+
+Условие: Определите функцию, удаляющую в исходном списке все повторные вхождения элементов.
+
+Код: 
+``` 
+(defun find-delete (lst) 
+ (cond
+  ((null lst) nil)
+  ((member (car lst) (cdr lst)) (find-delete (cdr lst)))
+  (t (cons (car lst) (find-delete (cdr lst))))))
+
+(print (find-delete '(1 2 3 1 2 3 1 4 1 5)))
+(print (find-delete '(1 1 1 1 1 1)))
+(print (find-delete '(1 1 1 1 2 2 2 3 4)))
+``` 
