@@ -14,7 +14,7 @@
 (print (del '(1 2 3 4 5) 3))
 (print (del '(1 2 3 4 5 6 7) 3))
 (print (del '(5 5 5 5 5 5) 5))
-(print (del '(1 1 1 1 1 1 1 1)) 3))
+(print (del '(1 1 1 1 1 1 1 1) 3))
 
 ;;;;ЗАДАНИЕ 11
 ;;;;Условие: Определите функцию, осуществляющую разделение исходного списка на два подсписка. 
@@ -53,15 +53,15 @@
 
 ;;;Код:
 (defun separ (lst &optional l1 l2)
-  (cond ((null lst) (list l1 l2))
+  (cond ((null lst) (list (reverse l1) (reverse l2)))
         ((>= (car lst) 0) (separ (cdr lst) l1 (cons (car lst) l2)))
         (t (separ (cdr lst) (cons (car lst) l1) l2))))
 
 
-(print (separ (1 2 3 -1 -2 -3)))
-(print (separ (1 -1 -2 2 -3 3 -4 4)))
-(print (separ (-1 -2 -3 -4 4 3 2 1)))
-(print (separ ()))
+(print (separ '(1 2 3 -1 -2 -3)))
+(print (separ '(1 -1 -2 2 -3 3 -4 4)))
+(print (separ '(-1 -2 -3 -4 4 3 2 1)))
+(print (separ '()))
 
 ;;;;ЗАДАНИЕ 9
 ;;;; Определите функцию, разделяющую исходный список на два подсписка. В первый из них должны попасть элементы с нечетными номерами, во второй — элементы с четными номерами.
