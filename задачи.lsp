@@ -19,8 +19,8 @@
 ;;;Код:
 (defun sps (lst m &optional (r nil))
     (cond ((null lst) 0)
-    ((eql (- m 1) -1) (list (reverse r) lst))
-    (t (sps (cdr lst) (- m 1) (cons (car lst) r)))))
+    ((eql (- m 1) -1) (list r lst))
+    (t (sps (cdr lst) (- m 1) (append r (list (car lst)))))))
 
 (print (sps '(1 2 3 4 5 6 7) 3))
 (print (sps '(k e r i m s u p e r) 5))
