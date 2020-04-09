@@ -1,14 +1,10 @@
 ;;;;ЗАДАНИЕ 10
 ;;;;Условие: Определите функцию, осуществляющую удаление указанного количества последних элементов исходного списка.
 
-;;;Код:
-(defun len (list)
-    (cond ((null list) 0)
-    (t (+ 1 (len (cdr list))))))
-    
+;;;Код:    
 (defun del (lst m)
     (cond ((null lst) 0)
-    ((eql (len lst) m) nil)
+    ((eql (length lst) m) nil)
     (t (cons (car lst) (del (cdr lst) m)))))
 
 (print (del '(1 2 3 4 5) 3))
