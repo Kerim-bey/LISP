@@ -183,3 +183,31 @@
 (print (symbol-plist 'X))
 (del-props 'X)
 (print (symbol-plist 'X))
+
+;;;;ЗАДАНИЕ 14
+;;;;Условие: Определите функцию, осуществляющую перестановку двух элементов списка с заданными номерами.
+
+;;;Код:
+
+(defun get-elem (lst pos)
+    (cond
+        ((null lst) nil)
+        ((< pos 1) nil)
+        ((= pos 1) (car lst))
+        (t ( get-elem (cdr lst) (- pos 1)))))
+
+(defun set-elem (lst pos elem)
+    (cond
+        ((null lst) nil)
+        ((< pos 1) lst)
+        ((= pos 1) (cons elem (cdr lst)))
+        (t (cons (car lst) (set-elem (cdr lst) (- pos 1) elem)))))
+
+(defun swap-elems (lst x y)
+    (set-elem (set-elem lst x (get-elem lst y)) y (get-elem lst x)))
+
+
+(print (swap-elems '(1 2 3 4 5) 1 5))
+(print (swap-elems '(1 2 3 4 5 6 7 8) 8 2))
+(print (swap-elems '() 1 5))
+(print (swap-elems '(1 2 3 4 5 6 7 8 9 10) 3 10))	
