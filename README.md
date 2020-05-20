@@ -179,6 +179,7 @@ False
 ### Sublime Text
 
 __Step 1:__ Download Sublime Text
+
 __Step 2:__ Install the "Elm Syntax Highlighting" plugin.
 
 Пройдя эти шаги, вы сможете открыть файлы Elm с подсветкой синтаксиса. Ключевые слова, такие как import и type, должны быть разноцветными, чтобы их было легче читать.
