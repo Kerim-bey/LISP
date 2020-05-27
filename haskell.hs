@@ -45,6 +45,19 @@ encode (x:xs) = (length $ x : takeWhile (==x) xs, x)
 
 dif x y = x \\ y
 
+{-
+ЗАДАНИЕ 4
+Условие: Определите функцию, разделяющую исходный список на два подсписка. В первый из них должны попасть элементы с 
+нечетными номерами, во второй - элементы с четными номерами.
+
+Код:
+-}
+
+separ :: [Int] -> [[Int]]
+separ [] = [[]]
+separ [x] = [[x],[]]
+separ (x:y:xs) = [x:xp, y:yp] where [xp, yp] = separ xs
+
 main = do
     putStrLn "Тесты к задаче №3"
     print (new_split [-1, -2, -3, 1, 2, 3]) 
@@ -62,3 +75,7 @@ main = do
     print (dif [1, 2] [1, 2, 3])
     print (dif [1, 2, 3, 4, 5] [1, 2, 5, 1, 3])
     print (dif [1, 2] [1])
+    putStrLn "Тесты к задаче №4"
+    print (separ [1,2,3,4,5])
+    print (separ [])
+    print (separ [1])
