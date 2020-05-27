@@ -191,3 +191,11 @@ __Step 2:__ Install the "Elm Syntax Highlighting" plugin.
 После завершения установки откройте терминал на своем компьютере. Это может называться cmd.exe или командной строки в Windows.
 
 Вы можете запустить проект Elm командой elm init
+
+### Полезные ссылки
+
+Официальный сайт ELM: https://elm-lang.org.
+
+Руководство по инструментарию для начинающих: https://habr.com/ru/post/302154/.
+
+Курс на GeekBrains: https://geekbrains.ru/posts/elm_lang.
