@@ -1,3 +1,5 @@
+import Data.List
+
 {-
 ЗАДАНИЕ 3
 Условие: Определите функцию, которая разделит исходный список из целых чисел на
@@ -5,7 +7,6 @@
 
 Код:
 -}
-import Data.List
 
 new_split lst = (filter (\x -> x > 0) lst, filter (\x -> x < 0) lst)
    
